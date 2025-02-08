@@ -7,7 +7,7 @@ function setup(){
 
 // playing with the feature we learned in class by making more stars and changing the colour!!!!
 function draw(){
-    background('#AA44FF'); // automatic semicolon intertion
+    background('#32CD32'); // automatic semicolon intertion
     star(x, y, 5, 15, 4);
     star(x+100, y, 5, 15, 4);
     star(x+200, y, 5, 15, 4);
