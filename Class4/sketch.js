@@ -4,7 +4,7 @@ var redBrick = {
     w: 60,
     h: 30,
     xSpeed: 1,
-    ySpeed: 1,
+    ySpeed: 4,
     colour: 'pink',
     draw: function(){
         fill( this.colour );
@@ -28,7 +28,7 @@ var blueBrick = {
     y: 50,
     w: 18,
     h: 38,
-    xSpeed: 2,
+    xSpeed: 4,
     ySpeed: 1,
     colour: 'purple',
     draw: function(){
@@ -57,7 +57,7 @@ function setup(){
 }
 
 function draw(){
-    background('orange'); 
+    background('lime'); 
     redBrick.draw();
     redBrick.move();
     blueBrick.draw();
