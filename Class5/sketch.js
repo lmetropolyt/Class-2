@@ -1,6 +1,7 @@
 var colourPicker; // function scope
 let strokeWeightSlider;
 var bgColourPicker;
+var drawModeRadio;
 
 function setup(){
     createCanvas(720,400);
@@ -14,6 +15,18 @@ function setup(){
     bgColorButton.mousePressed(repaint);
     bgColourPicker.changed( repaint ); 
     background( bgColourPicker.value() );
+
+    //chANGE THE SHAPE TOOL
+    drawModeRadio = createRadio(); 
+    drawModeRadio.option('Line'); 
+    drawModeRadio.option('Ellipse'); 
+    drawModeRadio.option('Rectangle'); 
+    drawModeRadio.selected('Line');
+
+    let bgColorRadios = document.getElementsByName('bgColor'); // Added
+    for (let i = 0; i < bgColorRadios.length; i++) { // Added
+        bgColorRadios[i].addEventListener('change', repaint); // Added
+    }
 }
 
 function draw(){
@@ -23,9 +36,18 @@ function draw(){
 
     // remixed from p5js.org/reference/mouseispressed/
     if(mouseIsPressed){
-        line(mouseX, mouseY, pmouseX, pmouseY);
+        let mode = drawModeRadio.value(); 
+        if (mode === 'Line') { 
+            line(mouseX, mouseY, pmouseX, pmouseY);
+        } else if (mode === 'Ellipse') { 
+            ellipse(mouseX, mouseY, 50, 50); 
+        } else if (mode === 'Rectangle') { 
+            rect(mouseX, mouseY, 50, 50); 
+        }
     }
     /// end remix
+
+
 }
 
 function repaint(){
